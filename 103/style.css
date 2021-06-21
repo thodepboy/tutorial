@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clear{
+  clear:both;
+}
+/*
+common begin
+*/
+.row{
+  padding-left: -8px;
+  padding-right: -8px;
+}
+.row::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.mt-8{
+  margin-top: 8px;
+}
+.mt-16{
+  margin-top: 16px;
+}
+.col{
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.col-half{
+  width: 50%;
+}
+.col-full{
+  width: 100%;
+}
+/*
+common end
+*/
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+#main {
+}
+#header{
+  height: 46px;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+#nav {
+}
+#nav, .subnav {
+  list-style-type: none;
+  display: inline-block;
+}
+#nav li {
+    position: relative;
+}
+#nav > li {
+  display: inline-block;
+}
+#nav > li > a {
+  color: #fff;
+}
+#nav li a {
+  text-decoration: none;
+  line-height: 46px;
+  padding: 0 24px;
+  display: inline-block;
+}
+#nav > li:hover > a,
+#nav .subnav li:hover {
+  background-color: rgb(173, 173, 173);
+  color: rgb(0, 0, 0);
+}
+#nav li:hover .subnav {
+    display: table;
+}
+#nav .subnav {
+  min-width: 160px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  top: 100%;
+  left: 0;
+  display: none;
+
+}
+#nav .subnav a {
+  color: black;
+  padding: 0 12px;
+  line-height: 38px;
+}
+#nav .ti-angle-down {
+  font-size: 14px;
+}
+#header .search-icons {
+  float: right;
+}
+#header .search-btn {
+  float: right;
+  line-height: 46px;
+  padding: 0 21px;
+  font-size: 16px;
+}
+#header .search-btn a {
+  text-decoration: none;
+  color: #fff;
+}
+#header .search-btn:hover {
+  background-color: rgb(231, 19, 19);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+#slider {
+    margin-top: 46px;
+    height: 50vw;
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/270/20/39/fantasy-girl-knife-straw-hat-raining-wallpaper-6b662cad2361bf1945644b199d2c6cf0.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#slider .text-content{
+    position:absolute;
+    color: white;
+    bottom: 47px;
+    width: 100%;
+    text-align: center;
+}
+#slider .text-heading{
+
+    font-weight: 5000;
+    font-size: 30px;
+
+}
+#slider .text-description{
+    margin-top: 25px;
+    font-size: 20px;
+}
+#content {
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+#content .content-section{
+  width: 800px;
+  padding: 64px 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+}
+#content .content-heading{
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 4px;
+  margin: 10px 0;
+  font-size: 30px;
+}
+#content .content-subheading{
+  text-align: center;
+  font-style: italic;
+  opacity: 0.6;
+  font-size: 15px;
+  margin-top: 15px;
+}
+#content .content-about{
+  text-align: justify !important;
+  line-height: 1.5;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 770px;
+}
+#content .member-list{
+  float:left;
+  margin-top: 47px;
+  width: 33.33333%;
+  text-align: center;
+}
+#content .name{
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+#content .ava{
+  border-radius: 4px;
+  width: 154px;
+}
+
+.tour-content{
+  background-color: black;
+  color: #fff;
+  padding-bottom: 48px;
+}
+.tour-ticket{
+  background-color: #fff;
+  color: #000;
+  margin-top: 40px;
+  list-style:none;
+}
+.ticket-month{
+  list-style: none;
+  
+}
+.ticket-month li{
+  font-size: 15px;
+  padding: 11px 16px;
+  border:solid #ddd 1px;
+  color: #757575;
+}
+.ticket-month  .soldout{
+  background-color: #d6002b;
+  color:#fff;
+  margin-left: 16px;
+  padding: 3px 4px;
+}
+.ticket-month .number{
+  background-color: black;
+  color: #fff;
+  border-radius: 60%;
+  float:right;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+.place-list{
+  margin-top: 32px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+.place-items{
+  float: left;
+  width: 33.33333%;
+  padding: 0 8px;
+  
+}
+.place-image{
+  width: 100%;
+  display: block;
+}
+.place-image:hover{
+  opacity: 0.6;
+}
+.place-infor{
+  background-color: #fff;
+  color: #000;
+  padding:16px;
+  font-size: 15px;
+}
+.place-name{
+  font-size: 15px;
+  font-weight: 550;
+}
+.place-time{
+  margin-top: 15px;
+  color:#757575
+}
+.place-des{
+  margin-top: 15px;
+  line-height: 1.4;
+}
+.place-btn{
+  background-color: #000;
+  color:#fff;
+  text-decoration: none;
+  padding: 11px 16px;
+  display: inline-block;
+  margin-top: 15px;
+}
+.place-btn:hover{
+  background-color: rgb(176, 184, 190);
+  color: #000;
+}
+.contact-content{
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+.contact-info{
+  font-size: 18px;
+  line-height: 1.5;
+}
+.contact-info i[class*="ti-"]
+{
+  width:30px ;
+  display: inline-block;
+}
+.contact-form{
+  font-size: 15px;
+}
+.contact-form .form-control{
+  padding:10px;
+  border:1px solid #ccc;
+  width: 100%;
+
+}
+.form-submit{
+  float: right;
+  background-color: #000;
+  color: #ccc;
+  border: none;
+  padding: 10px 16px;
+  margin-right: 8px;
+}
+.form-submit:hover{
+  background-color: rgb(176, 184, 190);
+  color: #000;
+  cursor: pointer;
+}
+
+#footer {
+  padding: 64px 16px;
+  text-align: center;
+}
+.social-list{
+  font-size: 25px;
+}
+.social-list a{
+  text-decoration: none;
+  color: #757575;
+}
+.social-list a:hover{
+  color: rgb(231, 96, 96);
+}
+#footer .copy-right a{
+  color: #000;
+}
+#footer .copy-right{
+  margin-top: 15px;
+}
