@@ -1,0 +1,106 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Definition
+{
+    string a;
+    string b;
+};
+class Cell
+{
+public:
+    Definition key;
+    Cell *next;
+    Cell(Definition k)
+    {
+        key = k;
+        next = NULL;
+    }
+    friend class Hashtable;
+};
+class Hashtable
+{
+private:
+    int m;
+    Cell **T;
+public:
+    Hashtable(int size = 100)
+    {
+        m= size;
+        T = new Cell*[m];
+        for(int i=0;i<m;i++)
+            T[i]=NULL;
+    }
+    int Getslot(string x)
+    {
+        hash<string>myhash;
+        int l = myhash(x)/1000000000;
+        return l;
+    }
+    void Insert(Definition k)
+    {
+        int j =Getslot(k.a);
+        if(T[j] == NULL)
+        {
+            T[j] = new Cell(k);
+        }
+        else
+        {
+            Cell *x = new Cell(k);
+            Cell *cur = T[j];
+            while (cur->next)
+            {
+                cur= cur->next;
+            }
+            cur->next= x;
+        }
+    }
+    string Search(Definition k)
+    {
+        cout<<endl<<"Dang tim kiem..."<<endl<<endl;
+        int j = Getslot(k.a);
+        for(Cell *cur = T[j]; cur != NULL; cur = cur->next)
+        {
+            if(cur->key.a == k.a)
+                return cur->key.b;
+        }
+        return "Khong tim thay";
+    }
+    ~Hashtable() // thu dọn table
+    {
+        for(int i=0;i<m;i++)
+            if(T[i]!= NULL)
+        {
+            for(Cell *x = T[i];x != NULL;)
+            {
+                Cell *y=x;
+                x= x->next;
+                delete y;
+            }
+        }
+    delete[] T;
+    }
+};
+int main()
+{
+    Hashtable myFirstHash;
+    Definition trans;
+    int g;
+    cout<<"Nhap vao so input "<<endl;
+    cin>>g;
+    cout<<"Nhap vao gia tri: "<<endl;
+    while(g)
+    {
+        cin>>trans.a;
+        cin.ignore();
+        getline(cin,trans.b);
+        myFirstHash.Insert(trans);
+        g--;
+    }
+    Definition timkiem;
+    cout<<"NHAP VAO TU CAN TIM: "<<endl;
+    cin>>timkiem.a;
+    cout<<"___________________________________________________"<<endl;
+    cout<<myFirstHash.Search(timkiem)<<endl;
+    return 0;
+}
